@@ -1,0 +1,86 @@
+<section class="entity-layout">
+  <article class="panel-card">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Talento humano</p>
+        <h2>Empleados</h2>
+      </div>
+      <button class="btn btn-outline-secondary" (click)="resetForm()">Limpiar</button>
+    </div>
+
+    <div class="alert alert-light border" *ngIf="feedback">{{ feedback }}</div>
+
+    <form class="row g-3" (ngSubmit)="saveEmployee()">
+      <div class="col-md-3">
+        <label class="form-label">Nombres</label>
+        <input class="form-control" [(ngModel)]="employeeForm.firstName" name="firstName" required />
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Apellidos</label>
+        <input class="form-control" [(ngModel)]="employeeForm.lastName" name="lastName" required />
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Correo</label>
+        <input class="form-control" [(ngModel)]="employeeForm.email" name="email" required />
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Fecha de ingreso</label>
+        <input class="form-control" type="date" [(ngModel)]="employeeForm.hireDate" name="hireDate" required />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Departamento</label>
+        <select class="form-select" [(ngModel)]="employeeForm.departmentId" name="departmentId" required>
+          <option [ngValue]="0">Seleccione</option>
+          <option *ngFor="let Departamento of departments" [ngValue]="Departamento.id">{{ Departamento.name }}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Cargo</label>
+        <select class="form-select" [(ngModel)]="employeeForm.jobPositionId" name="jobPositionId" required>
+          <option [ngValue]="0">Seleccione</option>
+          <option *ngFor="let position of positions" [ngValue]="position.id">{{ position.title }}</option>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Estado</label>
+        <select class="form-select" [(ngModel)]="employeeForm.status" name="status">
+          <option>Activo</option>
+          <option>Vacaciones</option>
+          <option>Licencia</option>
+        </select>
+      </div>
+      <div class="col-12 d-flex gap-2">
+        <button class="btn btn-primary" type="submit">{{ employeeForm.id ? 'Actualizar' : 'Registrar' }}</button>
+        <button class="btn btn-light" type="button" (click)="resetForm()">Cancelar</button>
+      </div>
+    </form>
+  </article>
+
+  <article class="panel-card">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Correo</th>
+          <th>Departamento</th>
+          <th>Cargo</th>
+          <th>Estado</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Empleado of employees">
+          <td>{{ Empleado.firstName }} {{ Empleado.lastName }}</td>
+          <td>{{ Empleado.email }}</td>
+          <td>{{ Empleado.departmentName }}</td>
+          <td>{{ Empleado.jobPositionTitle }}</td>
+          <td>{{ Empleado.status }}</td>
+          <td class="text-end d-flex gap-2 justify-content-end">
+            <button class="btn btn-sm btn-outline-primary" (click)="editEmployee(Empleado)">Editar</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteEmployee(Empleado.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>

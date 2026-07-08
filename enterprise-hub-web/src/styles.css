@@ -1,0 +1,45 @@
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #f3f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.panel-card {
+  border-radius: 1.1rem;
+  padding: 1.35rem;
+  background: white;
+  box-shadow: 0 18px 40px rgba(23, 50, 77, 0.08);
+}
+
+.entity-layout {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-kicker {
+  margin: 0;
+  color: #d46f1a;
+  text-transform: uppercase;
+  letter-spacing: 0.08rem;
+  font-size: 0.78rem;
+}
+
+h2 {
+  margin: 0.25rem 0 0;
+}

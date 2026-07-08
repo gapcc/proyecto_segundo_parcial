@@ -1,0 +1,62 @@
+<section class="panel-grid">
+  <article class="stat-card accent-orange">
+    <span>Departamentos</span>
+    <strong>{{ departments.length }}</strong>
+    <small>Areas activas con presupuesto y responsable.</small>
+  </article>
+  <article class="stat-card accent-blue">
+    <span>Cargos</span>
+    <strong>{{ positions.length }}</strong>
+    <small>Perfiles listos para asignacion de personal.</small>
+  </article>
+  <article class="stat-card accent-green">
+    <span>Empleados</span>
+    <strong>{{ employees.length }}</strong>
+    <small>Talento registrado y asociado a su estructura.</small>
+  </article>
+  <article class="stat-card accent-gold">
+    <span>Permisos</span>
+    <strong>{{ leaveRequests.length }}</strong>
+    <small>Solicitudes monitoreadas desde la misma interfaz.</small>
+  </article>
+</section>
+
+<section class="overview-grid">
+  <article class="panel-card">
+    <h3>Departamentos destacados</h3>
+    <div class="list-row" *ngFor="let Departamento of departments | slice:0:3">
+      <span>{{ Departamento.name }}</span>
+      <strong>{{ Departamento.employeeCount }} empleados</strong>
+    </div>
+  </article>
+
+  <article class="panel-card">
+    <h3>Ultimos empleados</h3>
+    <div class="list-row" *ngFor="let Empleado of employees | slice:0:4">
+      <span>{{ Empleado.firstName }} {{ Empleado.lastName }}</span>
+      <strong>{{ Empleado.departmentName }}</strong>
+    </div>
+  </article>
+
+  <article class="panel-card wide-card">
+    <h3>Solicitudes recientes</h3>
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Empleado</th>
+          <th>Motivo</th>
+          <th>Estado</th>
+          <th>Dias</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of leaveRequests | slice:0:4">
+          <td>{{ request.employeeName }}</td>
+          <td>{{ request.reason }}</td>
+          <td><span class="badge bg-secondary-subtle text-dark">{{ request.status }}</span></td>
+          <td>{{ request.totalDays }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>

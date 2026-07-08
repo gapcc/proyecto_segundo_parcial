@@ -1,0 +1,20 @@
+<div class="app-shell">
+  <header class="hero-bar">
+    <div>
+      <p class="eyebrow">Sistema web de gestion empresarial modular</p>
+      <h1>{{ title() }}</h1>
+      <p class="hero-copy">Controla departamentos, cargos, empleados y solicitudes de permiso desde un solo panel conectado a Angular y ASP.NET Core.</p>
+    </div>
+    <nav class="nav nav-pills flex-wrap gap-2">
+      <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Resumen</a>
+      <a class="nav-link" routerLink="/departments" routerLinkActive="active">Departamentos</a>
+      <a class="nav-link" routerLink="/positions" routerLinkActive="active">Cargos</a>
+      <a class="nav-link" routerLink="/employees" routerLinkActive="active">Empleados</a>
+      <a class="nav-link" routerLink="/leave-requests" routerLinkActive="active">Permisos</a>
+    </nav>
+  </header>
+
+  <main class="content-shell">
+    <router-outlet></router-outlet>
+  </main>
+</div>

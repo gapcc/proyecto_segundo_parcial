@@ -1,0 +1,37 @@
+# Build outputs
+**/bin/
+**/obj/
+**/dist/
+**/out/
+**/tmp/
+
+# Node / Angular
+**/node_modules/
+**/.angular/cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+coverage/
+
+# IDEs and editors
+.vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Local environment files
+.env
+.env.*
+*.local
+
+# OS files
+.DS_Store
+Thumbs.db

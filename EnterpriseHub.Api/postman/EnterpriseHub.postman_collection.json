@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "EnterpriseHub API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Departments - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5156/api/departments"
+      }
+    },
+    {
+      "name": "Departments - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Compras\",\n  \"managerName\": \"Elena Torres\",\n  \"monthlyBudget\": 9800\n}"
+        },
+        "url": "http://localhost:5156/api/departments"
+      }
+    },
+    {
+      "name": "Job Positions - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5156/api/jobpositions"
+      }
+    },
+    {
+      "name": "Employees - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5156/api/employees"
+      }
+    },
+    {
+      "name": "Employees - Create",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstName\": \"Daniel\",\n  \"lastName\": \"Rojas\",\n  \"email\": \"daniel.rojas@enterprisehub.com\",\n  \"hireDate\": \"2026-07-07T00:00:00\",\n  \"status\": \"Activo\",\n  \"departmentId\": 1,\n  \"jobPositionId\": 1\n}"
+        },
+        "url": "http://localhost:5156/api/employees"
+      }
+    },
+    {
+      "name": "Leave Requests - Get All",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:5156/api/leaverequests"
+      }
+    }
+  ]
+}

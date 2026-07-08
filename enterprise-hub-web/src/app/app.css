@@ -1,0 +1,63 @@
+.app-shell {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f6efe7 0%, #f3f7fb 45%, #eef9f0 100%);
+  color: #17324d;
+}
+
+.hero-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2.5rem 3rem 2rem;
+  align-items: end;
+  background: radial-gradient(circle at top left, rgba(226, 121, 37, 0.15), transparent 40%), #17324d;
+  color: #fff7ef;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+  opacity: 0.8;
+}
+
+.hero-bar h1 {
+  margin: 0;
+  font-size: 2.6rem;
+}
+
+.hero-copy {
+  max-width: 42rem;
+  margin: 0.6rem 0 0;
+  color: rgba(255, 247, 239, 0.88);
+}
+
+.nav-link {
+  color: #f8e7d3;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-link.active,
+.nav-link:hover {
+  background-color: #e27925;
+  border-color: #e27925;
+  color: white;
+}
+
+.content-shell {
+  padding: 2rem 3rem 3rem;
+}
+
+@media (max-width: 900px) {
+  .hero-bar,
+  .content-shell {
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+  }
+
+  .hero-bar {
+    flex-direction: column;
+    align-items: start;
+  }
+}

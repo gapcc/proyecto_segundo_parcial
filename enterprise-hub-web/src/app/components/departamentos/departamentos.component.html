@@ -1,0 +1,58 @@
+<section class="entity-layout">
+  <article class="panel-card">
+    <div class="section-head">
+      <div>
+        <p class="section-kicker">Gestion administrativa</p>
+        <h2>Departamentos</h2>
+      </div>
+      <button class="btn btn-outline-secondary" (click)="resetForm()">Limpiar</button>
+    </div>
+
+    <div class="alert alert-light border" *ngIf="feedback">{{ feedback }}</div>
+
+    <form class="row g-3" (ngSubmit)="saveDepartment()">
+      <div class="col-md-5">
+        <label class="form-label">Nombre</label>
+        <input class="form-control" [(ngModel)]="departmentForm.name" name="name" required />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Responsable</label>
+        <input class="form-control" [(ngModel)]="departmentForm.managerName" name="managerName" required />
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Presupuesto mensual</label>
+        <input class="form-control" type="number" [(ngModel)]="departmentForm.monthlyBudget" name="monthlyBudget" required />
+      </div>
+      <div class="col-12 d-flex gap-2">
+        <button class="btn btn-primary" type="submit">{{ departmentForm.id ? 'Actualizar' : 'Registrar' }}</button>
+        <button class="btn btn-light" type="button" (click)="resetForm()">Cancelar</button>
+      </div>
+    </form>
+  </article>
+
+  <article class="panel-card">
+    <table class="table align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Departamento</th>
+          <th>Responsable</th>
+          <th>Presupuesto</th>
+          <th>Empleados</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Departamento of departments">
+          <td>{{ Departamento.name }}</td>
+          <td>{{ Departamento.managerName }}</td>
+          <td>{{ Departamento.monthlyBudget | currency:'USD' }}</td>
+          <td>{{ Departamento.employeeCount }}</td>
+          <td class="text-end d-flex gap-2 justify-content-end">
+            <button class="btn btn-sm btn-outline-primary" (click)="editDepartment(Departamento)">Editar</button>
+            <button class="btn btn-sm btn-outline-danger" (click)="deleteDepartment(Departamento.id)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </article>
+</section>
