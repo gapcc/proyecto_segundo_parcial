@@ -1,0 +1,11 @@
+{
+  "installCommand": "cd enterprise-hub-web && npm install",
+  "buildCommand": "cd enterprise-hub-web && npm run build:vercel",
+  "outputDirectory": "enterprise-hub-web/dist/enterprise-hub-web/browser",
+  "rewrites": [
+    {
+      "source": "/((?!config.js|favicon.ico|.*\\..*).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

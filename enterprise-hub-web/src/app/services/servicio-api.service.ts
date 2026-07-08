@@ -6,7 +6,7 @@ import { Departamento, Empleado, Cargo, SolicitudPermiso } from '../models';
 
 @Injectable({ providedIn: 'root' })
 export class ServicioApi {
-  private readonly baseUrl = 'http://localhost:5156/api';
+  private readonly baseUrl = this.obtenerUrlApi();
 
   constructor(private readonly http: HttpClient) {}
 
@@ -72,5 +72,14 @@ export class ServicioApi {
 
   deleteLeaveRequest(id: number): Observable<void> {
     return this.http.delete<void>(`${this.baseUrl}/leaverequests/${id}`);
+  }
+  private obtenerUrlApi(): string {
+    const config = (
+      globalThis as typeof globalThis & {
+        ENTERPRISE_HUB_CONFIG?: { apiBaseUrl?: string };
+      }
+    ).ENTERPRISE_HUB_CONFIG;
+
+    return config?.apiBaseUrl?.replace(/\/$/, '') || 'http://localhost:5156/api';
   }
 }
